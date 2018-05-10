@@ -1216,6 +1216,9 @@ do_search(
     char_u	    *dircp;
     char_u	    *strcopy = NULL;
     char_u	    *ps;
+#ifdef FEAT_CONCEAL
+    linenr_T	oldline = curwin->w_cursor.lnum;
+#endif
 
     /*
      * A line offset is not remembered, this is vi compatible.

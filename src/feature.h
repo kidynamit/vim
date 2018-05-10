@@ -687,6 +687,13 @@
 #endif
 
 /*
+ * +cursorbind		synchronization of split windows
+ */
+#if defined(FEAT_NORMAL) && defined(FEAT_WINDOWS)
+# define FEAT_CURSORBIND
+#endif
+
+/*
  * +menu		":menu" command
  */
 #ifdef FEAT_NORMAL

@@ -1889,6 +1889,10 @@ get_syntax_attr(
 	++current_col;
     }
 
+#ifdef FEAT_CONCEAL
+    if (p_flags != NULL)
+	*p_flags = current_flags;
+#endif
     return attr;
 }
 

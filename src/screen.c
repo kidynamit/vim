@@ -2079,8 +2079,8 @@ win_update(win_T *wp)
 	    fold_count = foldedCount(wp, lnum, &win_foldinfo);
 	    if (fold_count != 0)
 	    {
-		fold_line(wp, fold_count, &win_foldinfo, lnum, row);
-		++row;
+			fold_line(wp, fold_count, &win_foldinfo, lnum, row);
+			++row;
 		--fold_count;
 		wp->w_lines[idx].wl_folded = TRUE;
 		wp->w_lines[idx].wl_lastlnum = lnum + fold_count;

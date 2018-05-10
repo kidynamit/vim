@@ -1710,6 +1710,15 @@ enter_buffer(buf_T *buf)
     foldUpdateAll(curwin);	/* update folds (later). */
 #endif
 
+#ifdef FEAT_SYN_HL
+    if (curwin->w_s != &curwin->w_buffer->s)
+    {
+	/* Get rid of independant syntax */
+	syntax_clear(curwin->w_s);
+	vim_free(curwin->w_s);
+    }
+    curwin->w_s = &(buf->s);
+#endif
     /* Get the buffer in the current window. */
     curwin->w_buffer = buf;
     curbuf = buf;
